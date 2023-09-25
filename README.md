@@ -2,6 +2,8 @@ Bernardo Pears (berpears9@gmail.com)
 Franco Bustamante (franbusta04@hotmail.com);
 
 Tematica: Tienda de celulares y accesorios
+
+
 Tienda virtual de celulares y accesorios para estos, para una compra rapida y facil desde tu casa.
 
 
