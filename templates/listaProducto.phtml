@@ -1,0 +1,26 @@
+<?php require './templates/header.phtml';?>
+
+
+<table class="table">
+    <thead>
+        <tr>
+        <th scope="col">#</th>
+        <th scope="col">Producto</th>
+        <th scope="col">Precio</th>
+        </tr>
+    </thead>
+<?php foreach ($productos as $producto):?>
+    <tbody>
+        <tr>
+        <th scope="row"><?= $producto->id_productos ?></th>
+        <td><?=$producto->Producto?></td>
+        <td><?=$producto->Precio?></td>
+        <td>
+            <div class="btn-group text-decoration-none"><button id="agregar" class="btn btn-primary text-decoration-none">Comprar</button></div>
+        </td>
+        </tr>
+        <?php endforeach ?>
+    </tbody>
+    </table>
+
+<?php require './templates/footer.phtml';?>

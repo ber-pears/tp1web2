@@ -1,0 +1,29 @@
+<?php require './templates/header.phtml'?>
+
+<div class="mt-5 w-25 mx-auto">
+    <svg class="d-block mx-auto" xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
+        <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z" />
+        <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z" />
+    </svg>
+    <form method="POST" action="auth">
+        <div class="form-group">
+            <label for="usuario">Usuario</label>
+            <input type="text" class="form-control" id="usuario" name="usuario">
+        </div>
+        <div class="form-group">
+            <label for="contraseña">Contraseña</label>
+            <input type="password" class="form-control" id="password" name="password">
+        </div>
+
+        <?php if ($error) : ?>
+            <div class='alert alert-danger' role='alert'>
+                <?= $error ?>
+            </div>
+        <?php endif ?>
+
+        <button class="btn btn-primary d-block mx-auto" type="submit">Sign in</button>
+    </form>
+
+</div>
+
+<?php require './templates/footer.phtml'?>
