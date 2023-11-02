@@ -1,19 +1,19 @@
 <?php
 require_once './app/views/user.view.php';
 require_once './app/models/user.model.php';
-require_once './app/helpers/user.helper.php';
+require_once './app/helpers/user.helpers.php';
 
-class AuthController {
-    private $view;
-    private $model;
 
-    function __construct() {
+class AuthController{
+private $model;
+private $view;
+    public function __construct(){
         $this->model = new UserModel();
         $this->view = new UserView();
     }
 
-    public function login() {
-        $this->view->login();
+    public function showLogin() {
+        $this->view->showLogin();
     }
 
     public function auth() {
@@ -21,17 +21,20 @@ class AuthController {
         $password = $_POST['password'];
 
         if (empty($usuario) || empty($password)) {
-            $this->view->login('Faltan completar campos de datos');
+            $this->view->showLogin('Faltan completar datos');
             return;
         }
 
-        
+        // busco el usuario
         $user = $this->model->getByUser($usuario);
-        if ($user && password_verify($password,$password)) {
-            AuthHelper::login($user); 
-            header('Location: ' . BASE_URL .'home');
+        if ($user && password_verify($password, $user->contraseña)) {
+            // ACA LO AUTENTIQUE
+            
+            AuthHelper::login($user);
+            
+            header('Location: ' . BASE_URL);
         } else {
-            $this->view->login('Usuario no válido');
+            $this->view->showLogin('Usuario inválido');
         }
     }
 

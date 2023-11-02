@@ -1,11 +1,6 @@
 <?php
-
 class UserView {
-    public function login($error = null) {
+    public function showLogin($error = null) {
         require './templates/login.phtml';
     }
-    /*function showError($error) {
-        require './templates/error.phtml';
-    }*/
-
 }

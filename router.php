@@ -1,8 +1,7 @@
 <?php
 //incluyo las funciones de un archivo
-require_once './app/controllers/ejemplo.controller.php'; 
-require_once './app/controllers/verLista.controllers.php';
-require_once './app/controllers/auth.controllers.php';
+require_once 'app/controllers/user.controller.php';
+require_once 'app/controllers/produc.controller.php';
 
 define('BASE_URL', '//'.$_SERVER['SERVER_NAME'] . ':' . $_SERVER['SERVER_PORT'] . dirname($_SERVER['PHP_SELF']).'/');
 
@@ -24,17 +23,12 @@ if (!empty( $_GET['action'])) {
 $params = explode('/', $action);
 
 switch ($params[0]) {
-    case 'home':
-        $productosControllers = new ProductosController();
-        $productosControllers->verProductos();
-        break;
-    case 'lista':
-        $productosControllers = new VerLista();
-        $productosControllers->lista();
-        break;
+    case'home':
+        $homecontroller = new ProductosController();
+        $homecontroller->showProductos();
     case 'login':
-        $controllers = new AuthController;
-        $controllers->login();
+        $controller = new AuthController();
+        $controller->showLogin(); 
         break;
     case 'auth':
         $controller = new AuthController();
@@ -45,7 +39,6 @@ switch ($params[0]) {
         $controller->logout();
         break;
     default: 
-        echo "404 Page Not Found";
-        break;
+
 }
 ?>
