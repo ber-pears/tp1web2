@@ -27,7 +27,7 @@ class AuthController {
 
         
         $user = $this->model->getByUser($usuario);
-        if ($user && password_verify($password,$user->contraseña)) {
+        if ($user && password_verify($password,$password)) {
             AuthHelper::login($user); 
             header('Location: ' . BASE_URL .'home');
         } else {
