@@ -1,26 +1,35 @@
 <?php require './templates/header.phtml';?>
+<?php require './templates/agregarProducto.phtml'?>
+        <table class="table">
+            <thead>
+                <tr>
+                <th scope="col">#</th>
+                <th scope="col">Producto</th>
+                <th scope="col">Categoria</th>
+                <th scope="col">Precio</th>
+                </tr>
+            </thead>
+    <?php foreach ($productos as $producto):?>
+        <tbody>
+            <tr>
+            <th scope="row"><?= $producto->id_productos ?></th>
+            <td><?=$producto->Producto?></td>
+            <td><?=$producto->Categoria?></td>
+            <td><?=$producto->Precio?></td>
+            <td>
+                <button id="agregar" class="btn btn-primary text-decoration-none">Comprar</button>
+            </td>    
+            <td>
+                <form action="eliminar/<?= $producto->id_productos?>" method="POST">    
+                    <button id="eliminar" class="btn btn-danger text-decoration-none">Eliminar</button>
+                </form>
+            </td>   
+                
+            
+            </tr>
+            <?php endforeach ?>
+        </tbody>
+        </table>
 
-
-<table class="table">
-    <thead>
-        <tr>
-        <th scope="col">#</th>
-        <th scope="col">Producto</th>
-        <th scope="col">Precio</th>
-        </tr>
-    </thead>
-<?php foreach ($productos as $producto):?>
-    <tbody>
-        <tr>
-        <th scope="row"><?= $producto->id_productos ?></th>
-        <td><?=$producto->Producto?></td>
-        <td><?=$producto->Precio?></td>
-        <td>
-            <div class="btn-group text-decoration-none"><button id="agregar" class="btn btn-primary text-decoration-none">Comprar</button></div>
-        </td>
-        </tr>
-        <?php endforeach ?>
-    </tbody>
-    </table>
-
-<?php require './templates/footer.phtml';?>
+<?php require './templates/editarProducto.phtml'?>
+<?php require './templates/footer.phtml'?>

@@ -1,0 +1,27 @@
+
+    <link rel="stylesheet" href="/css/style.css">
+    <h4>Agregar Producto</h4>
+    
+        <form method ="POST" action="agregar">
+            <label for="categoria">Categoría:</label>
+            <select class="custom-select" name="categoria" required>
+                <option value="Celular">Celular</option>
+                <option value="Accesorio">Accesorio</option>
+                <option value="Audio">Audio</option>
+            </select><br>
+
+            <div class=" my-custom-form">
+               <label for="Producto">Nombre del Producto</label> 
+               <input type="text" class="form-control my-custom-input" placeholder="Producto" name="producto" aria-label="default input example" required>
+                
+            </div>
+
+            <div class=" my-custom-form">
+               <label for="Precio">Precio</label> 
+               <input class="form-control my-custom-input" type="number" placeholder="Precio" name="precio" aria-label="default input example" required>
+                
+            </div>
+
+            <button type="submit" class="btn btn-success my-custom-button">Agregar</button>
+        </form>
+    
